@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Лаба 6</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Відступ між кнопками */
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #content {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ласкаво просимо до мого сайту</h1>
+  
+  <!-- Контейнер для кнопок -->
+  <div id="button-container">
+    <button id="redirectBtn">Перейти на іншу сторінку</button>
+    <button id="manipulateBtn">Маніпулювати DOM</button>
+  </div>
+
+  <!-- Виправлений div для вставки тексту -->
+  <div id="content"></div>
+
+  <!-- Внутрішній скрипт -->
+  <script>
+    // Зміна фону сторінки на 30 секунд
+    document.body.style.backgroundColor = "#f0f8ff"; // встановлюємо фон
+    setTimeout(function() {
+      document.body.style.backgroundColor = "#ffffff"; // повертаємо фон через 30 секунд (30000 мс)
+    }, 30000);
+
+    // Подія для перенаправлення браузера на іншу сторінку
+    document.getElementById("redirectBtn").addEventListener("click", function() {
+      location.href = "https://www.example.com"; // вказати потрібну URL
+    });
+
+    // Маніпуляції з DOM
+    document.getElementById("manipulateBtn").addEventListener("click", function() {
+      let contentDiv = document.getElementById("content");
+      let newDiv = document.createElement("div");
+      newDiv.textContent = "Новий елемент додано!";
+      contentDiv.append(newDiv);
+    });
+  </script>
+</body>
+</html>
